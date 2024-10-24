@@ -1,8 +1,11 @@
+
+
 // app.js
 const express = require('express');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
 const mongoose = require('mongoose'); // Asegúrate de importar mongoose
+
 
 require('dotenv').config();
 
@@ -22,9 +25,9 @@ app.use(express.json());
 
 
 
-mongoose.connect('mongodb://localhost:27017/tu_base_de_datos')
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Conectado a MongoDB'))
-    .catch(err => console.error('No se pudo conectar a MongoDB', err));
+    .catch(err => console.error('Error de conexión a MongoDB:', err));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
