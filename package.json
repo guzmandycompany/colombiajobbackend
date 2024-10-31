@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "server": "npx nodemon index.js",
+    "server": "node index.js",
     "build": "echo 'No build necessary'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
